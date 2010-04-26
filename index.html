@@ -26,9 +26,16 @@
           <h1>The Right Mines Game</h1>
           
           <div id="game-container"></div>
+          <div id="opera-warning">
+            <b>NOTE:</b> Opera users, use Shift + Click to mark the cells as mined
+          </div>
           <script type="text/javascript">
           // <![CDATA[
             new RMines().element.insertTo('game-container');
+            
+            if (Browser.Opera) {
+              $('opera-warning').show();
+            }
           // ]]>
           </script>
         </div>
