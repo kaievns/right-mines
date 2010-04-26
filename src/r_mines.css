@@ -42,14 +42,14 @@ div.r-mines div.status-bar div.smile {
   *zoom: 1;
   width: 32px;
   height: 32px;
-  background: url(../img/smiles.png) no-repeat 67% 0;
+  background: url(../img/smiles.png) no-repeat 66.66% 0;
   cursor: pointer;
 }
 div.r-mines div.status-bar div.working {
   background-position: 0 0;
 }
 div.r-mines div.status-bar div.looser {
-  background-position: 33.3%;
+  background-position: 33.33%;
 }
 div.r-mines div.status-bar div.winner {
   background-position: 100% 0;
