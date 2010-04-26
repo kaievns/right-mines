@@ -33,7 +33,8 @@ var RMines = new Class({
     }.bind(this));
     
     this.controls.onChange(function() {
-      this.status.fire('reset');
+      this.field.reset(this.controls);
+      this.status.reset().update(this.field);
     }.bind(this));
     
     this.controls.onResize(function() {

@@ -42,10 +42,20 @@ div.r-mines div.status-bar div.smile {
   *zoom: 1;
   width: 32px;
   height: 32px;
-  background: url(../img/smiles.png) no-repeat -64px 0;
+  background: url(../img/smiles.png) no-repeat 66.6% 0;
   cursor: pointer;
   border: 1px solid #CCC;
   -moz-border-radius: .3em;
+  -webkit-border-radius: .3em;
+}
+div.r-mines div.status-bar div.working {
+  background-position: 0 0;
+}
+div.r-mines div.status-bar div.looser {
+  background-position: 33.3%;
+}
+div.r-mines div.status-bar div.winner {
+  background-position: 100% 0;
 }
 
 /* The field styles */
@@ -71,6 +81,7 @@ div.r-mines div.field div.row div {
   font-family: Verdana;
   font-size: 18px;
   text-indent: -999em;
+  cursor: default;
 }
 div.r-mines div.field div.row div.open   { background-position: 0 0;   text-indent: 0;}
 div.r-mines div.field div.row div.blown  { background-position: 40% 0; }

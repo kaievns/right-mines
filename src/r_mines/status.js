@@ -11,8 +11,8 @@ RMines.Status = new Class(Observer, {
     this.element = $E('div', {'class': 'status-bar'});
     
     this.element.insert([
-      this.timer = $E('div', {'class': 'timer', html: 'Time: 00:00:00'}),
-      this.state = $E('div', {'class': 'state', html: 'Mines: 0/0'}),
+      this.timer = $E('div', {'class': 'timer'}),
+      this.state = $E('div', {'class': 'state'}),
       this.smile = $E('div', {'class': 'smile', title: 'Reset'})
     ]);
     
@@ -28,10 +28,13 @@ RMines.Status = new Class(Observer, {
    * @return this
    */
   reset: function() {
-    this.time   = 0;
-    this.status = 'new';
+    this.time    = 0;
+    this.marked  = 0;
+    this.overall = 0;
+    this.status  = 'new';
+    this.smile.className = 'smile';
     
-    return this.fire('reset');
+    return this.updateTime().updateSmile().updateMines().fire('reset');
   },
   
   /**
@@ -41,19 +44,11 @@ RMines.Status = new Class(Observer, {
    * @return this
    */
   update: function(field) {
-    var smile_class = 'smile';
+    this.status  = field.state;
+    this.marked  = field.marked;
+    this.overall = field.overall;
     
-    switch (this.status = field.state) {
-      case 'working': smile_class += ' working'; break;
-      case 'winner':  smile_class += ' winner';  break;
-      case 'looser':  smile_class += ' looser';  break;
-    }
-    
-    this.smile.className = smile_class;
-    
-    this.state.update("Mines: "+ field.marked + "/" + field.overall);
-    
-    return this.fire('update');
+    return this.updateSmile().updateMines().fire('update');
   },
   
 // protected
@@ -62,17 +57,45 @@ RMines.Status = new Class(Observer, {
   hartBeat: function() {
     if (this.status == 'working') {
       this.time ++;
-      
-      var seconds =  this.time % 60;
-      var minutes = (this.time / 60).floor() % 60;
-      var hours   = (this.time / 3600).floor();
-      
-      this.timer.update(
-        "Time: " +
-        (hours   > 9 ? '' : '0') + hours   + ":" +
-        (minutes > 9 ? '' : '0') + minutes + ":" +
-        (seconds > 9 ? '' : '0') + seconds
-      );
+      this.updateTime();
     }
+  },
+  
+  // updates the timer
+  updateTime: function() {
+    var seconds =  this.time % 60;
+    var minutes = (this.time / 60).floor() % 60;
+    var hours   = (this.time / 3600).floor();
+    
+    this.timer.update(
+      "Time: " +
+      (hours   > 9 ? '' : '0') + hours   + ":" +
+      (minutes > 9 ? '' : '0') + minutes + ":" +
+      (seconds > 9 ? '' : '0') + seconds
+    );
+    
+    return this;
+  },
+  
+  // updates the smile block
+  updateSmile: function() {
+    var smile_class;
+    
+    switch (this.status) {
+      case 'working': smile_class = 'working'; break;
+      case 'winner':  smile_class = 'winner';  break;
+      case 'looser':  smile_class = 'looser';  break;
+    }
+    
+    this.smile.className = 'smile '+ smile_class;
+    
+    return this;
+  },
+  
+  // updates the mines counter block
+  updateMines: function() {
+    this.state.update("Mines: "+ this.marked + "/" + this.overall);
+    
+    return this;
   }
 });
