@@ -8,10 +8,10 @@ div.r-mines, div.r-mines div {
   padding: 0;
   display: block;
   position: static;
-  top: auto;
-  left: auto;
-  right: auto;
-  bottom: auto;
+  top: none;
+  left: none;
+  right: none;
+  bottom: none;
   width: auto;
   height: auto;
   border: none;
@@ -20,7 +20,7 @@ div.r-mines, div.r-mines div {
 
 div.r-mines {
   text-align: center;
-  margin-bottom: 3em;
+  margin-bottom: 2em;
 }
 
 /* the status bar styles */
@@ -42,11 +42,8 @@ div.r-mines div.status-bar div.smile {
   *zoom: 1;
   width: 32px;
   height: 32px;
-  background: url(../img/smiles.png) no-repeat 66.6% 0;
+  background: url(../img/smiles.png) no-repeat 67% 0;
   cursor: pointer;
-  border: 1px solid #CCC;
-  -moz-border-radius: .3em;
-  -webkit-border-radius: .3em;
 }
 div.r-mines div.status-bar div.working {
   background-position: 0 0;
@@ -63,16 +60,14 @@ div.r-mines div.field {
   display: inline-block;
   *display: inline;
   *zoom: 1;
-  margin: 1em 0;
+  margin: 2em 0;
 }
 div.r-mines div.field div.row {
   height: 24px;
   white-space: nowrap;
 }
 div.r-mines div.field div.row div {
-  display: inline-block;
-  *display: inline;
-  *zoom: 1;
+  float: left;
   width: 24px;
   height: 24px;
   line-height: 24px;

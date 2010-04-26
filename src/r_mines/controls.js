@@ -79,13 +79,13 @@ RMines.Controls = new Class(Observer, {
   
   // builds a select box
   build: function(hash) {
-    var options = '';
+    var select = $E('select').on('change', this.save.bind(this));
     
     for (var key in hash) {
-      options += '<option value="'+key+'">'+ hash[key] +'</option>';
+      select.insert($E('option', {value: key, html: hash[key]}));
     }
     
-    return $E('select', {html: options}).on('change', this.save.bind(this));
+    return select;
   }
   
 });

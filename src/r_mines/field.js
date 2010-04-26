@@ -32,7 +32,8 @@ RMines.Field = new Class(Observer, {
   initialize: function() {
     this.$super();
     this.element = $E('div', {'class': 'field'})
-      .onMousedown(this.click.bind(this));
+      .onMousedown(this.click.bind(this))
+      .onContextmenu('stopEvent');
     
     this.onWin('showAnimation', 'marked').onLoose('showAnimation', 'blown');
   },
@@ -270,6 +271,8 @@ RMines.Field = new Class(Observer, {
         cell.removeClass('marked').addClass('wrong');
       } else if (cell.mined && !cell.blown && !cell.marked) {
         cell.addClass('mined');
+      } else if (!cell.marked && !cell.blown) {
+        cell.addClass('open');
       }
     };
     
