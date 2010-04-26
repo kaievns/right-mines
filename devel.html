@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title>Mines Game - Development</title>
+    
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    
+    <script type="text/javascript" src="lib/right.js"></script>
+    <link rel="stylesheet" type="text/css" href="lib/demo_pages.css" />
+    
+    <script type="text/javascript" src="src/r_mines.js"></script>
+    <script type="text/javascript" src="src/r_mines/field.js"></script>
+    <script type="text/javascript" src="src/r_mines/status.js"></script>
+    <script type="text/javascript" src="src/r_mines/controls.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="src/r_mines.css" />
+  </head>
+  
+  <body>
+    <div id="body">
+      <div id="head">
+        <a href="./" id="logo">Right Mines</a>
+        <div id="slogan">RightJS Based Mines Game - Development</div>
+        <ul id="main-menu">
+          <li class="current"><a href="./">Demo</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      
+      <div id="main">
+        <div id="info">
+          <h1>The Right Mines Game</h1>
+          
+          <div id="game-container"></div>
+          <script type="text/javascript">
+          // <![CDATA[
+            new RMines().element.insertTo('game-container');
+          // ]]>
+          </script>
+        </div>
+      </div>
+    </div>
+    <div id="foot">
+      <div id="copy">Copyright &copy; 2010 Nikolay V. Nemshilov</div>
+    </div>
+  </body>
+</html>

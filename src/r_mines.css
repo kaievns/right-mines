@@ -1,0 +1,103 @@
+/**
+ * The RMines game stylesheet
+ *
+ * Copyright (C) 2010 Nikolay Nemshilov
+ */
+div.r-mines, div.r-mines div {
+  margin: 0;
+  padding: 0;
+  display: block;
+  position: static;
+  top: auto;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  width: auto;
+  height: auto;
+  border: none;
+  background: none;
+}
+
+div.r-mines {
+  text-align: center;
+  margin-bottom: 3em;
+}
+
+/* the status bar styles */
+div.r-mines div.status-bar {
+  position: relative;
+}
+div.r-mines div.status-bar div.timer,
+div.r-mines div.status-bar div.state {
+  position: absolute;
+  left: 0px;
+}
+div.r-mines div.status-bar div.state {
+  left: auto;
+  right: 0px;
+}
+div.r-mines div.status-bar div.smile {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  width: 32px;
+  height: 32px;
+  background: url(../img/smiles.png) no-repeat -64px 0;
+  cursor: pointer;
+  border: 1px solid #CCC;
+  -moz-border-radius: .3em;
+}
+
+/* The field styles */
+div.r-mines div.field {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  margin: 1em 0;
+}
+div.r-mines div.field div.row {
+  height: 24px;
+  white-space: nowrap;
+}
+div.r-mines div.field div.row div {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  background: url(../img/cells-24.png) no-repeat 20% 0;
+}
+div.r-mines div.field div.row div.open   { background-position: 0 0;   }
+div.r-mines div.field div.row div.blown  { background-position: 40% 0; }
+div.r-mines div.field div.row div.marked { background-position: 60% 0; }
+div.r-mines div.field div.row div.wrong  { background-position: 80% 0; }
+div.r-mines div.field div.row div.mined  { background-position: 100% 0;}
+
+div.r-mines div.small div.row {
+  height: 16px;
+}
+div.r-mines div.small div.row div {
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  background-image: url(../img/cells-16.png);
+}
+
+div.r-mines div.big div.row {
+  height: 32px;
+}
+div.r-mines div.big div.row div {
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  background-image: url(../img/cells-32.png);
+}
+
+/* The controls styles */
+div.r-mines div.controls-bar label {
+  font-weight: bold;
+  color: #333;
+  margin-right: .4em;
+  margin-left: 1em;
+}
