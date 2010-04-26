@@ -69,8 +69,8 @@ RMines.Status = new Class(Observer, {
       
       this.timer.update(
         "Time: " +
-        (hours   > 9 ? '' : '0') + hours   +
-        (minutes > 9 ? '' : '0') + minutes +
+        (hours   > 9 ? '' : '0') + hours   + ":" +
+        (minutes > 9 ? '' : '0') + minutes + ":" +
         (seconds > 9 ? '' : '0') + seconds
       );
     }

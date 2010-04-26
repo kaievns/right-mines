@@ -67,12 +67,25 @@ div.r-mines div.field div.row div {
   height: 24px;
   line-height: 24px;
   background: url(../img/cells-24.png) no-repeat 20% 0;
+  font-weight: bold;
+  font-family: Verdana;
+  font-size: 18px;
+  text-indent: -999em;
 }
-div.r-mines div.field div.row div.open   { background-position: 0 0;   }
+div.r-mines div.field div.row div.open   { background-position: 0 0;   text-indent: 0;}
 div.r-mines div.field div.row div.blown  { background-position: 40% 0; }
 div.r-mines div.field div.row div.marked { background-position: 60% 0; }
 div.r-mines div.field div.row div.wrong  { background-position: 80% 0; }
 div.r-mines div.field div.row div.mined  { background-position: 100% 0;}
+
+div.r-mines div.field div.row div.mines-1 { color: #0000FF; }
+div.r-mines div.field div.row div.mines-2 { color: #00A000; }
+div.r-mines div.field div.row div.mines-3 { color: #FF0000; }
+div.r-mines div.field div.row div.mines-4 { color: #00007f; }
+div.r-mines div.field div.row div.mines-5 { color: #AA0000; }
+div.r-mines div.field div.row div.mines-6 { color: #840; }
+div.r-mines div.field div.row div.mines-7 { color: #480; }
+div.r-mines div.field div.row div.mines-8 { color: #048; }
 
 div.r-mines div.small div.row {
   height: 16px;
@@ -81,6 +94,7 @@ div.r-mines div.small div.row div {
   width: 16px;
   height: 16px;
   line-height: 16px;
+  font-size: 12px;
   background-image: url(../img/cells-16.png);
 }
 
@@ -91,6 +105,7 @@ div.r-mines div.big div.row div {
   width: 32px;
   height: 32px;
   line-height: 32px;
+  font-size: 22px;
   background-image: url(../img/cells-32.png);
 }
 
